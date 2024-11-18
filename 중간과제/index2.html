@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,intial-scale=1.0/">
+        <title>DEMIAN</title>
+        <link rel="stylesheet" href="style2.css">
+    </head>
+
+    <body>
+        <div class="main">
+            <a href="index.html">
+                <img src="image/데미안1.svg" class="image">
+            </a>
+            <div class="text">
+                <p id="typingText1"></p>
+                <p id="typingText2"></p>
+            </div>
+            <img src="image/데미안글밥.png" art="글밥" class="image-t2"
+        </div>
+
+            <script>
+                const text1 = "“The bird fights its way out of the egg.The egg is the world. Whoever wishes to be born must destroy a world”";
+                const text2 = "“The bird flies to God. That God’s name is Abraxas.”"; // 시작 부분 추가
+
+
+                let index1 = 0;
+                let index2 = 0;
+
+                function type(element, text, index, callback) {
+                    if (index < text.length) {
+                        element.textContent += text.charAt(index);
+                        index++;
+                        setTimeout(() => type(element, text, index, callback), 100); // 각 문자 사이의 타이밍
+                    } else if (callback) {
+                        callback(); // 다음 함수 호출
+                    }
+                }
+
+                // 첫 번째 텍스트 타이핑
+                type(document.getElementById('typingText1'), text1, index1, () => {
+                    // 두 번째 텍스트 타이핑
+                    type(document.getElementById('typingText2'), text2, index2);
+                });
+            </script>
+    </body>
+
+</html>
+ 

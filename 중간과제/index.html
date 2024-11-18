@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,intial-scale=1.0/">
+        <title>SINCLAIR</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="main">
+            <a href="index2.html">
+                <img src="image/싱클레어1.svg" alt="타이틀" class="image">
+            </a>
+            
+            <div class="text">
+                <p id="typingText1"></p>
+                <p id="typingText2"></p>
+            </div>
+            <img src="image/싱클레어글밥.png" art="글밥" class="image-t1"
+        </div>
+
+            <script>
+                const text1 = "“There was no longer the smell of peace and security on the hallway floor of our house.”";
+                const text2 = "“The world around me was collapsing.”"; // 시작 부분 추가
+
+
+                let index1 = 0;
+                let index2 = 0;
+
+                function type(element, text, index, callback) {
+                    if (index < text.length) {
+                        element.textContent += text.charAt(index);
+                        index++;
+                        setTimeout(() => type(element, text, index, callback), 100); // 각 문자 사이의 타이밍
+                    } else if (callback) {
+                        callback(); // 다음 함수 호출
+                    }
+                }
+
+                // 첫 번째 텍스트 타이핑
+                type(document.getElementById('typingText1'), text1, index1, () => {
+                    // 두 번째 텍스트 타이핑
+                    type(document.getElementById('typingText2'), text2, index2);
+                });
+            </script>
+    </body>
+
+</html>
